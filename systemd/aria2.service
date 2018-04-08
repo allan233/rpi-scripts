@@ -1,0 +1,25 @@
+[Unit]
+Description=Aria2
+After=syslog.target
+After=network.target
+#After=mysqld.service
+#After=memcached.service
+#After=redis.service
+
+[Service]
+# Modify these two values and uncomment them if you have
+# repos with lots of files and get an HTTP error 500 because
+# of that
+###
+#LimitMEMLOCK=infinity
+#LimitNOFILE=65535
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf
+Restart=always
+Environment=USER=ubuntu HOME=/home/ubuntu
+
+[Install]
+WantedBy=multi-user.target

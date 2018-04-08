@@ -1,0 +1,9 @@
+[Unit]
+Description=frps daemon
+
+[Service]
+Type=simple
+ExecStart=/home/ubuntu/frp/frpc -c /home/ubuntu/frp/frpc.ini
+
+[Install]
+WantedBy=multi-user.target
